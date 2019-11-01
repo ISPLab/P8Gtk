@@ -10,5 +10,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)P8SkiaLayout.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GTKRenderer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StartView.cs" />
   </ItemGroup>
 </Project>

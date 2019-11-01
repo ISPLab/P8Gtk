@@ -9,12 +9,10 @@ namespace SkiaTest
     {
         public App()
         {
-            MainPage = new ContentPage();
-
+            MainPage = new ContentPage
+            {
+                Content = new SkAreaRenderer()
+            };
         }
-    
-
-
-
     }
 }
