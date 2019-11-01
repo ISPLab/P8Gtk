@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GtkXamarinSkia", "GtkXamarinSkia\GtkXamarinSkia.csproj", "{A4E1F8EB-BCDE-4F5D-A0E2-42854BD7286D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SkiaTest", "SkiaTest\SkiaTest.shproj", "{F85B078B-6B8C-40A7-8768-92D5DD8F3E34}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SkiaTest\SkiaTest.projitems*{a4e1f8eb-bcde-4f5d-a0e2-42854bd7286d}*SharedItemsImports = 4
+		SkiaTest\SkiaTest.projitems*{f85b078b-6b8c-40a7-8768-92d5dd8f3e34}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A4E1F8EB-BCDE-4F5D-A0E2-42854BD7286D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4E1F8EB-BCDE-4F5D-A0E2-42854BD7286D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4E1F8EB-BCDE-4F5D-A0E2-42854BD7286D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4E1F8EB-BCDE-4F5D-A0E2-42854BD7286D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4FBFB0D3-A618-4BEE-8536-2FDF6422E631}
+	EndGlobalSection
+EndGlobal
