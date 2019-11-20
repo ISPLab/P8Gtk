@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:FormsGtkLive.Views;assembly=FormsGtkLive"
+             x:Class="FormsGtkLive.Views.EditorView"
+             Title="Live Skia Editor">
+    <ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+        <Grid VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Editor
+                Grid.Column="0"
+                Text="{Binding LiveCode}"/>
+            <views:SKCanvasView x:Name="canvas" PaintSurface="OnPaintSample" Grid.Column="1">
+            </views:SKCanvasView>
+        </Grid>
+        <Label Text="{Binding ErrorMessage}" TextColor="Red" IsVisible="{Binding HasErrors}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
