@@ -2,13 +2,14 @@
 using System.ComponentModel;
 using SkiaSharp.Views.Forms;
 using SkiaSharp.Views.Gtk;
+using SkiaTest;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.GTK;
 
-[assembly: ExportRenderer(typeof(SKCanvasView), typeof(GtkXamarinSkia.GTK.SKGtkViewRenderer))]
+[assembly: ExportRenderer(typeof(PureSkia), typeof(GtkXamarinSkia.GTK.SKGtkViewRenderer))]
 namespace GtkXamarinSkia.GTK
 {
-    public class SKGtkViewRenderer : ViewRenderer<SKCanvasView, SKWidget>
+    public class SKGtkViewRenderer : ViewRenderer<PureSkia, SKWidget>
     {
         protected override void Dispose(bool disposing)
         {
@@ -20,11 +21,11 @@ namespace GtkXamarinSkia.GTK
             base.Dispose(disposing);
         }
 
-        protected override void OnElementChanged(ElementChangedEventArgs<SKCanvasView> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<PureSkia> e)
         {
             if (e.OldElement != null)
             {
-                (e.NewElement as ISKCanvasViewController).SurfaceInvalidated -= HandleSurfaceInvalidated;
+                (e.NewElement as SkiaTest.ISKCanvasViewController).SurfaceInvalidated -= HandleSurfaceInvalidated;
             }
             if (e.NewElement != null)
             {
@@ -35,7 +36,7 @@ namespace GtkXamarinSkia.GTK
                     view.PaintSurface += OnPaintSurface;
                     SetNativeControl(view);
                 }
-                (e.NewElement as ISKCanvasViewController).SurfaceInvalidated += HandleSurfaceInvalidated;
+                (e.NewElement as SkiaTest.ISKCanvasViewController).SurfaceInvalidated += HandleSurfaceInvalidated;
             }
             base.OnElementChanged(e);
         }
@@ -43,7 +44,7 @@ namespace GtkXamarinSkia.GTK
         void OnPaintSurface(object sender, SkiaSharp.Views.Desktop.SKPaintSurfaceEventArgs e)
         {
             // the control is being repainted, let the user know
-            (Element as ISKCanvasViewController)?.OnPaintSurface(new SKPaintSurfaceEventArgs(e.Surface, e.Info));
+            (Element as SkiaTest.ISKCanvasViewController)?.OnPaintSurface(new SKPaintSurfaceEventArgs(e.Surface, e.Info));
         }
 
         protected virtual SKWidget CreateNativeControl()

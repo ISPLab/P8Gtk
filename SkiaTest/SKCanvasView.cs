@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace SkiaTest
 {
-    public class SKCanvasView : View, ISKCanvasViewController
+    public class SKCanvasView : ContentView, ISKCanvasViewController
     {
         public static readonly BindableProperty IgnorePixelScalingProperty =
             BindableProperty.Create(nameof(IgnorePixelScaling), typeof(bool), typeof(SKCanvasView), false);

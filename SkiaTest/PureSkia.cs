@@ -4,11 +4,12 @@ using Xamarin.Forms;
 
 namespace SkiaTest
 {
-    public class PureSkia : ContentView
+    public class PureSkia : SKCanvasView
     {
         public PureSkia()
         {
             SKCanvasView canvasView = new SKCanvasView();
+            PaintSurface += OnCanvasViewPaintSurface;
             canvasView.PaintSurface += OnCanvasViewPaintSurface;
             Content = canvasView;
         }
