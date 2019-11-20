@@ -13,5 +13,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)P8SkiaLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GTKRenderer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StartView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PureSkia.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SKCanvasView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoServices\EvalMessage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoServices\EvalResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoServices\IEvaluator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonoServices\MonoEvaluator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)MonoServices\" />
   </ItemGroup>
 </Project>
