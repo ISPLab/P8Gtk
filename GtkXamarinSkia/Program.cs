@@ -14,7 +14,8 @@ namespace GtkXamarinSkia
         [STAThread]
         public static void Main(string[] args)
         {
-            RunGtkWindow();
+            // RunGtkWindow();
+            RunXamarinWidow();
         }
 
 

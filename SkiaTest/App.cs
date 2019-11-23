@@ -16,7 +16,7 @@ namespace SkiaTest
 
             MainPage = new ContentPage
             {
-                Content = new PureSkia()
+                Content = new ButtonPressTest()
             };
         }
     }

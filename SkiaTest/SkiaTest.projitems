@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MonoServices\EvalResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoServices\IEvaluator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoServices\MonoEvaluator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ButtonPressTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)MonoServices\" />
