@@ -16,7 +16,7 @@ namespace SkiaTest
 
             MainPage = new ContentPage
             {
-                Content = new ButtonPressTest()
+                Content = new P8ImageTest()
             };
         }
     }

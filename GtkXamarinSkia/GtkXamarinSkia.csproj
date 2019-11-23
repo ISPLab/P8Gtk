@@ -76,6 +76,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SkiaRenderer.cs" />
     <Compile Include="SKGtkViewRenderer.cs" />
+    <Compile Include="CircleImgSource.cs" />
+    <Compile Include="P8Image.cs" />
+    <Compile Include="P8ImageSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SkiaSharp.Views.Forms">

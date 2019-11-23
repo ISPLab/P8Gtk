@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MonoServices\MonoEvaluator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ButtonPressTest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)P8SKImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)P8ImageTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)MonoServices\" />

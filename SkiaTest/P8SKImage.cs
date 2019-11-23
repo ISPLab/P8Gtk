@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace SkiaTest
 {
-    public class P8SKImage : Xamarin.Forms.Image
+    public class P8ImageResource 
     {
         SKImage snapshot;
         SKBitmap bitmap;
@@ -16,8 +16,10 @@ namespace SkiaTest
         //   private Gdk.Pixbuf pix;
         //  private SKSurface surface;
         SKCanvas sKCanvas;
-        public P8SKImage()
+        public P8ImageResource(float width, float height)
         {
+            this.Width = width;
+            this.Height = height;
             CreateDrawingObjects();
            // PaintSurface += OnCanvasViewPaintSurface;
            //  canvasView.PaintSurface += OnCanvasViewPaintSurface;
@@ -26,20 +28,18 @@ namespace SkiaTest
         }
         private void CreateDrawingObjects()
         {
-            var alloc = new SKRect(0, 0, 100, 100);
-           // this.pix;
-            var imgInfo = new SKImageInfo((int)alloc.Width, (int)alloc.Height, SKImageInfo.PlatformColorType, SKAlphaType.Premul);
-            // byte[] buffer = new byte[500];
-            // var pix = new Gdk.Pixbuf(  ( (buffer, 100, 100);
-            //  surface = SKSurface.Create(imgInfo, pix.Pixels, imgInfo.RowBytes);
-            // surface = SKSurface.Create(imgInfo,8);
+            var imgInfo = new SKImageInfo((int)Width, (int)Height, SKImageInfo.PlatformColorType, SKAlphaType.Premul);
             color = Color.Green;
             bitmap = new SKBitmap(imgInfo);
             sKCanvas = new SKCanvas(bitmap);
             Paintbitmap(sKCanvas);
-            
             //  snapshot = surface.Snapshot();
-
+            // var alloc = new SKRect(0, 0, 100, 100);
+            // this.pix;
+            // byte[] buffer = new byte[500];
+            // var pix = new Gdk.Pixbuf(  ( (buffer, 100, 100);
+            //  surface = SKSurface.Create(imgInfo, pix.Pixels, imgInfo.RowBytes);
+            // surface = SKSurface.Create(imgInfo,8);
             /*  var alloc = new  SKRect(100,100,100,1000);
               var imgInfo = new SKImageInfo((int)alloc.Width, (int)alloc.Height, SKImageInfo.PlatformColorType, SKAlphaType.Premul);
 
@@ -59,30 +59,50 @@ namespace SkiaTest
               return imgInfo;
                */
         }
-       
+
         void Paintbitmap(SKCanvas canvas)
         {
             //SKCanvas canvas = _surface.Canvas;
-
             canvas.Clear();
 
-            if (color == Color.Green)
-                color = Color.Red;
-            else color = Color.Green;
-            SKPaint paint = new SKPaint
+            float maxRadius = 0.75f * Math.Min(100, 100) / 2;
+            float minRadius = 0.25f * maxRadius;
+
+            float xRadius = minRadius * scale + maxRadius * (1 - scale);
+            float yRadius = maxRadius * scale + minRadius * (1 - scale);
+
+            using (SKPaint paint = new SKPaint())
             {
-                IsAntialias=true,
-                Style = SKPaintStyle.Stroke,
-                Color = color.ToSKColor(),
-                StrokeWidth = 2
-            };
-            sKCanvas.Scale((float)scale);
-            // canvas.DrawCircle(info.Width / 2, info.Height / 2, 100, paint);
-            canvas.DrawCircle(50, 50, 25, paint);
-            
-           // snapshot = surface.Snapshot();
-            OnPropertyChanged("Source");
-            Painted?.Invoke(this, new EventArgs());
+                paint.Style = SKPaintStyle.Stroke;
+                paint.Color = SKColors.Blue;
+                paint.StrokeWidth = 50;
+                canvas.DrawOval(Width / 2, Height / 2, xRadius, yRadius, paint);
+
+                paint.Style = SKPaintStyle.Fill;
+                paint.Color = SKColors.SkyBlue;
+                canvas.DrawOval(Width / 2, Height / 2, xRadius, yRadius, paint);
+            }
+          // GetImageSource();
+           // Painted?.Invoke(this, new EventArgs());
+
+
+            /*   if (color == Color.Green)
+                   color = Color.Red;
+               else color = Color.Green;
+               SKPaint paint = new SKPaint
+               {
+                   IsAntialias=true,
+                   Style = SKPaintStyle.Stroke,
+                   Color = color.ToSKColor(),
+                   StrokeWidth = 2
+               };
+               sKCanvas.Scale((float)scale);
+               // canvas.DrawCircle(info.Width / 2, info.Height / 2, 100, paint);
+               canvas.DrawCircle(50, 50, 25, paint);
+
+              // snapshot = surface.Snapshot();
+               OnPropertyChanged("Source");*/
+
         }
         private void FreeDrawingObjects()
         {
@@ -115,7 +135,11 @@ namespace SkiaTest
         }
 
         System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
-        double scale = 2;
+        float scale = 2;
+
+        public float Width { get; }
+        public float Height { get; }
+
         public async Task AnimationLoop()
         {
             stopwatch.Start();
