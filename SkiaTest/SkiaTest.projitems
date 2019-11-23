@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MonoServices\IEvaluator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonoServices\MonoEvaluator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ButtonPressTest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)P8SKImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)MonoServices\" />
