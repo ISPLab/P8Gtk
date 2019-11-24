@@ -9,26 +9,12 @@ namespace SkiaTest
         public P8Image(P8ImageSource source):base()
         {
             imageSource = source;
-            Binding bindW = new Binding("Width", source: this,mode:BindingMode.TwoWay);
-            source.SetBinding(WidthProperty, bindW);
+            Binding bindW = new Binding { Source = this, Path = "Width", Mode = BindingMode.TwoWay };
+            source.SetBinding(P8ImageSource.WidthProperty, bindW);
             Binding bindH = new Binding("Height", source:this);
-            source.SetBinding(HeightProperty, bindH);
+            source.SetBinding(P8ImageSource.HeightProperty, bindH);
             Binding bindS = new Binding("ImageSource", source:source);
             this.SetBinding(Image.SourceProperty, binding: bindS);
-       
-        }
-
-        internal void SetP8Source(P8ImageSource source)
-        {
-            imageSource = source;
-            Binding bindW = new Binding("Width", source: this, mode: BindingMode.TwoWay);
-            source.SetBinding(WidthProperty, bindW);
-            Binding bindH = new Binding("Height", source: this);
-            source.SetBinding(HeightProperty, bindH);
-            Binding bindS = new Binding("ImageSource", source: source);
-            this.SetBinding(Image.SourceProperty, binding: bindS);
-            //source.Width = 100;// this.Width;
-            //source.Height = 100;// this.Height;
         }
     }
 }

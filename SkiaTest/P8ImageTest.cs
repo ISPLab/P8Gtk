@@ -12,8 +12,7 @@ namespace SkiaTest
             image.WidthRequest = 100;
             image.HeightRequest = 100;
             image.BackgroundColor = Color.LightBlue;
-            image.SetP8Source(cis);
-                  StackLayout stack = new StackLayout();
+            StackLayout stack = new StackLayout();
             stack.Children.Add(image);
             this.Content = stack;
         }
