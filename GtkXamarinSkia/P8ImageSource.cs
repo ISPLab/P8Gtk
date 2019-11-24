@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using SkiaSharp;
 using Xamarin.Forms;
 
@@ -26,6 +27,12 @@ namespace SkiaTest
             get { return (double)GetValue(WidthProperty); }
             set { SetValue(WidthProperty, value); }
         }
+
+        public virtual async Task Animate()
+        {
+
+        }
+     
 
         public static BindableProperty HeightProperty =
             BindableProperty.Create(
@@ -84,12 +91,12 @@ namespace SkiaTest
 
         public void InvalidateCanvas()
         {
-            if (Width < 2 || Height < 2) return;
+            if (Width <=1 || Height <= 1) return;
 
             var imgInfo = new SKImageInfo((int)Width, (int)Height, SKImageInfo.PlatformColorType, SKAlphaType.Premul);
             bitmap = new SKBitmap(imgInfo);
-            //sKCanvas.Scale(scale);
             sKCanvas = new SKCanvas(bitmap);
+            sKCanvas.Scale((float)Scale);
             PaintBitmap();
             this.ImageSource = GetImageResource();
         }
